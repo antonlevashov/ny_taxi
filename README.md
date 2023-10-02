@@ -1,62 +1,5 @@
 Syllabus
 
-- [Taking the course](#taking-the-course)
-  - [2023 Cohort](#2023-cohort)
-  - [Self-paced mode](#self-paced-mode)
-  - [Asking for help in Slack](#asking-for-help-in-slack)
-  - [Course UI](#course-ui)
-- [Syllabus](#syllabus)
-  - [Week 1: Introduction \& Prerequisites](#week-1-introduction--prerequisites)
-  - [Week 2: Workflow Orchestration](#week-2-workflow-orchestration)
-  - [Week 3: Data Warehouse](#week-3-data-warehouse)
-  - [Week 4: Analytics engineering](#week-4-analytics-engineering)
-  - [Week 5: Batch processing](#week-5-batch-processing)
-  - [Week 6: Streaming](#week-6-streaming)
-  - [Week 7, 8 \& 9: Project](#week-7-8--9-project)
-  - [Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider](#workshop-maximizing-confidence-in-your-data-model-changes-with-dbt-and-piperider)
-- [Overview](#overview)
-  - [Architecture diagram](#architecture-diagram)
-  - [Technologies](#technologies)
-  - [Prerequisites](#prerequisites)
-- [Instructors](#instructors)
-- [Tools](#tools)
-- [Supporters and partners](#supporters-and-partners)
-
-## Taking the course
-
-### 2023 Cohort
-
-* **Start**: 16 January 2023 (Monday) at 18:00 CET
-* **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
-* [Cohort folder](cohorts/2023/) with homeworks and deadlines 
-
-### Self-paced mode
-
-All the materials of the course are freely available, so that you
-can take the course at your own pace
-
-* Follow the suggested syllabus (see below) week by week
-* You don't need to fill in the registration form. Just start watching the videos and join Slack
-* Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
-* If you can't find a solution to your problem in FAQ, ask for help in Slack
-
-### Asking for help in Slack
-
-The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel.
-
-To make discussions in Slack more organized:
-
-* Follow [these recommendations](asking-questions.md) when asking for help
-* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
-
-### Course UI
-
-Alternatively, you can access this course using the provided UI app, the app provides a user-friendly interface for navigating through the course material. 
-
-* Visit the following link: [DE Zoomcamp UI](https://dezoomcamp.streamlit.app/)
-
-![dezoomcamp-ui](https://github.com/DataTalksClub/data-engineering-zoomcamp/assets/66017329/4466d2bc-3728-4fca-8e9e-b1c6be30a430)
 
 ## Syllabus
 
@@ -71,9 +14,6 @@ Alternatively, you can access this course using the provided UI app, the app pro
 * Running Postgres locally with Docker
 * Setting up infrastructure on GCP with Terraform
 * Preparing the environment for the course
-* Homework
-
-[More details](week_1_basics_n_setup)
 
 
 ### [Week 2: Workflow Orchestration](week_2_workflow_orchestration/)
@@ -84,9 +24,7 @@ Alternatively, you can access this course using the provided UI app, the app pro
 * ETL with GCP & Prefect
 * Parametrizing workflows
 * Prefect Cloud and additional resources
-* Homework
 
-[More details](week_2_workflow_orchestration/)
 
 
 ### [Week 3: Data Warehouse](week_3_data_warehouse)
@@ -100,7 +38,6 @@ Alternatively, you can access this course using the provided UI app, the app pro
 * Integrating BigQuery with Airflow
 * BigQuery Machine Learning
 
-[More details](week_3_data_warehouse)
 
 
 ### [Week 4: Analytics engineering](week_4_analytics_engineering/)
@@ -115,7 +52,6 @@ Alternatively, you can access this course using the provided UI app, the app pro
 * Visualizing the data with google data studio and metabase
 
 
-[More details](week_4_analytics_engineering)
 
 
 ### [Week 5: Batch processing](week_5_batch_processing)
@@ -126,7 +62,6 @@ Alternatively, you can access this course using the provided UI app, the app pro
 * Spark SQL
 * Internals: GroupBy and joins
 
-[More details](week_5_batch_processing)
 
 ### [Week 6: Streaming](week_6_stream_processing)
 
@@ -135,17 +70,7 @@ Alternatively, you can access this course using the provided UI app, the app pro
 * Kafka Streams
 * Kafka Connect and KSQL
 
-[More details](week_6_stream_processing)
 
-
-### [Week 7, 8 & 9: Project](week_7_project)
-
-Putting everything we learned to practice
-
-* Week 7 and 8: working on your project
-* Week 9: reviewing your peers
-
-[More details](week_7_project)
 
 
 ### Workshop: Maximizing Confidence in Your Data Model Changes with dbt and PipeRider
@@ -171,25 +96,6 @@ Putting everything we learned to practice
 * *Kafka*: Streaming
 
 
-### Prerequisites
-
-To get the most out of this course, you should feel comfortable with coding and command line
-and know the basics of SQL. Prior experience with Python will be helpful, but you can pick
-Python relatively fast if you have experience with other programming languages.
-
-Prior experience with data engineering is not required.
-
-
-
-## Instructors
-
-- [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
-- [Sejal Vaidya](https://linkedin.com/in/vaidyasejal)
-- [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
-- [Kalise Richmond](https://www.linkedin.com/in/kaliserichmond/)
-- [Jeff Hale](https://www.linkedin.com/in/-jeffhale/)
-- [Alexey Grigorev](https://linkedin.com/in/agrigorev)
-
 ## Tools
 
 For this course, you'll need to have the following software installed on your computer:
@@ -198,28 +104,3 @@ For this course, you'll need to have the following software installed on your co
 * Python 3 (e.g. via [Anaconda](https://www.anaconda.com/products/individual))
 * Google Cloud SDK
 * Terraform
-
-See [Week 1](week_1_basics_n_setup) for more details about installing these tools
-
-
-
-
-## Supporters and partners
-
-Thanks to the course sponsors for making it possible to create this course
-
-<p align="center">
-  <a href="https://www.prefect.io/">
-    <img height="100" src="https://github.com/DataTalksClub/mlops-zoomcamp/raw/main/images/prefect.png">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://www.piperider.io/">
-    <img height="130" src="images/piperider.png">
-  </a>
-</p>
-
-
-Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
-
