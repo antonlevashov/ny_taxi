@@ -12,8 +12,8 @@ class JsonConsumer:
 
     def consume_from_kafka(self, topics: List[str]):
         self.consumer.subscribe(topics)
-        print('Consuming from Kafka started')
-        print('Available topics to consume: ', self.consumer.subscription())
+        print("Consuming from Kafka started")
+        print("Available topics to consume: ", self.consumer.subscription())
         while True:
             try:
                 # SIGINT can't be handled when polling, limit timeout to 1 second.
@@ -29,14 +29,16 @@ class JsonConsumer:
         self.consumer.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     config = {
-        'bootstrap_servers': BOOTSTRAP_SERVERS,
-        'auto_offset_reset': 'earliest',
-        'enable_auto_commit': True,
-        'key_deserializer': lambda key: int(key.decode('utf-8')),
-        'value_deserializer': lambda x: loads(x.decode('utf-8'), object_hook=lambda d: Ride.from_dict(d)),
-        'group_id': 'consumer.group.id.json-example.1',
+        "bootstrap_servers": BOOTSTRAP_SERVERS,
+        "auto_offset_reset": "earliest",
+        "enable_auto_commit": True,
+        "key_deserializer": lambda key: int(key.decode("utf-8")),
+        "value_deserializer": lambda x: loads(
+            x.decode("utf-8"), object_hook=lambda d: Ride.from_dict(d)
+        ),
+        "group_id": "consumer.group.id.json-example.1",
     }
 
     json_consumer = JsonConsumer(props=config)

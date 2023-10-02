@@ -38,7 +38,13 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def df_to_parquet(df: pd.DataFrame, target_dir: Path, dataset_file: str, chunk_size=1000000, **parquet_wargs) -> None:
+def df_to_parquet(
+    df: pd.DataFrame,
+    target_dir: Path,
+    dataset_file: str,
+    chunk_size=1000000,
+    **parquet_wargs,
+) -> None:
     """Writes pandas DataFrame to parquet format with pyarrow.
 
     Args:
@@ -59,7 +65,7 @@ def write_local(df: pd.DataFrame, dataset_file: str) -> None:
     local_path = Path(f"multistore/{dataset_file}").resolve()
     if not os.path.exists(local_path):
         os.makedirs(local_path)
-    
+
     df_to_parquet(df, local_path, dataset_file, 5000000)
 
 
@@ -99,8 +105,16 @@ def etl_parent_flow(months: list) -> None:
 
 
 if __name__ == "__main__":
-    months = ["2019-Oct","2019-Nov","2019-Dec","2020-Jan","2020-Feb", "2020-Mar", "2020-Apr"]
+    months = [
+        "2019-Oct",
+        "2019-Nov",
+        "2019-Dec",
+        "2020-Jan",
+        "2020-Feb",
+        "2020-Mar",
+        "2020-Apr",
+    ]
 
     etl_parent_flow.serve(name="multistore_deployment", parameters={"months": months})
-    
+
     # etl_parent_flow(months)

@@ -52,11 +52,10 @@ with DAG(
     catchup=True,
     max_active_runs=1,
 ) as dag:
-
     # Takes ~2 mins, depending upon your internet's download speed
     download_dataset_task = BashOperator(
         task_id="download_dataset_task",
-        bash_command=f"curl -sS {dataset_url} > {path_to_local_home}/{dataset_file}"    # "&& unzip {zip_file} && rm {zip_file}"
+        bash_command=f"curl -sS {dataset_url} > {path_to_local_home}/{dataset_file}",  # "&& unzip {zip_file} && rm {zip_file}"
     )
 
     # # APPROACH 1: (takes 20 mins, at an upload speed of 800Kbps. Faster if your internet has a better upload speed)
@@ -77,7 +76,6 @@ with DAG(
         task_id="upload_to_gcs_task",
         bash_command=f"gcloud auth activate-service-account --key-file={path_to_creds} && \
         gsutil -m cp {path_to_local_home}/{dataset_file} gs://{BUCKET}",
-
     )
 
     download_dataset_task >> upload_to_gcs_task

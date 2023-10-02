@@ -7,7 +7,9 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 from google.cloud import storage
-from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateExternalTableOperator
+from airflow.providers.google.cloud.operators.bigquery import (
+    BigQueryCreateExternalTableOperator,
+)
 import pyarrow.csv as pv
 import pyarrow.parquet as pq
 
@@ -17,16 +19,16 @@ BUCKET = os.environ.get("GCP_GCS_BUCKET")
 dataset_file = "yellow_tripdata_2021-01.csv"
 dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
-parquet_file = dataset_file.replace('.csv', '.parquet')
-BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all')
+parquet_file = dataset_file.replace(".csv", ".parquet")
+BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", "trips_data_all")
 
 
 def format_to_parquet(src_file):
-    if not src_file.endswith('.csv'):
+    if not src_file.endswith(".csv"):
         logging.error("Can only accept source files in CSV format, for the moment")
         return
     table = pv.read_csv(src_file)
-    pq.write_table(table, src_file.replace('.csv', '.parquet'))
+    pq.write_table(table, src_file.replace(".csv", ".parquet"))
 
 
 # NOTE: takes 20 mins, at an upload speed of 800kbps. Faster if your internet has a better upload speed
@@ -65,12 +67,11 @@ with DAG(
     default_args=default_args,
     catchup=False,
     max_active_runs=1,
-    tags=['dtc-de'],
+    tags=["dtc-de"],
 ) as dag:
-
     download_dataset_task = BashOperator(
         task_id="download_dataset_task",
-        bash_command=f"curl -sSL {dataset_url} > {path_to_local_home}/{dataset_file}"
+        bash_command=f"curl -sSL {dataset_url} > {path_to_local_home}/{dataset_file}",
     )
 
     format_to_parquet_task = PythonOperator(
@@ -107,4 +108,9 @@ with DAG(
         },
     )
 
-    download_dataset_task >> format_to_parquet_task >> local_to_gcs_task >> bigquery_external_table_task
+    (
+        download_dataset_task
+        >> format_to_parquet_task
+        >> local_to_gcs_task
+        >> bigquery_external_table_task
+    )

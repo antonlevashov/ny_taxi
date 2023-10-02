@@ -6,8 +6,8 @@ from datetime import datetime
 class Ride:
     def __init__(self, arr: List[str]):
         self.vendor_id = arr[0]
-        self.tpep_pickup_datetime = datetime.strptime(arr[1], "%Y-%m-%d %H:%M:%S"),
-        self.tpep_dropoff_datetime = datetime.strptime(arr[2], "%Y-%m-%d %H:%M:%S"),
+        self.tpep_pickup_datetime = (datetime.strptime(arr[1], "%Y-%m-%d %H:%M:%S"),)
+        self.tpep_dropoff_datetime = (datetime.strptime(arr[2], "%Y-%m-%d %H:%M:%S"),)
         self.passenger_count = int(arr[3])
         self.trip_distance = Decimal(arr[4])
         self.rate_code_id = int(arr[5])
@@ -26,27 +26,28 @@ class Ride:
 
     @classmethod
     def from_dict(cls, d: Dict):
-        return cls(arr=[
-            d['vendor_id'],
-            d['tpep_pickup_datetime'][0],
-            d['tpep_dropoff_datetime'][0],
-            d['passenger_count'],
-            d['trip_distance'],
-            d['rate_code_id'],
-            d['store_and_fwd_flag'],
-            d['pu_location_id'],
-            d['do_location_id'],
-            d['payment_type'],
-            d['fare_amount'],
-            d['extra'],
-            d['mta_tax'],
-            d['tip_amount'],
-            d['tolls_amount'],
-            d['improvement_surcharge'],
-            d['total_amount'],
-            d['congestion_surcharge'],
-        ]
+        return cls(
+            arr=[
+                d["vendor_id"],
+                d["tpep_pickup_datetime"][0],
+                d["tpep_dropoff_datetime"][0],
+                d["passenger_count"],
+                d["trip_distance"],
+                d["rate_code_id"],
+                d["store_and_fwd_flag"],
+                d["pu_location_id"],
+                d["do_location_id"],
+                d["payment_type"],
+                d["fare_amount"],
+                d["extra"],
+                d["mta_tax"],
+                d["tip_amount"],
+                d["tolls_amount"],
+                d["improvement_surcharge"],
+                d["total_amount"],
+                d["congestion_surcharge"],
+            ]
         )
 
     def __repr__(self):
-        return f'{self.__class__.__name__}: {self.__dict__}'
+        return f"{self.__class__.__name__}: {self.__dict__}"

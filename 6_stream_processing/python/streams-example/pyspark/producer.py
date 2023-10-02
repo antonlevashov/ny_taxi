@@ -10,8 +10,11 @@ def delivery_report(err, msg):
     if err is not None:
         print("Delivery failed for record {}: {}".format(msg.key(), err))
         return
-    print('Record {} successfully produced to {} [{}] at offset {}'.format(
-        msg.key(), msg.topic(), msg.partition(), msg.offset()))
+    print(
+        "Record {} successfully produced to {} [{}] at offset {}".format(
+            msg.key(), msg.topic(), msg.partition(), msg.offset()
+        )
+    )
 
 
 class RideCSVProducer:
@@ -23,12 +26,14 @@ class RideCSVProducer:
     def read_records(resource_path: str):
         records, ride_keys = [], []
         i = 0
-        with open(resource_path, 'r') as f:
+        with open(resource_path, "r") as f:
             reader = csv.reader(f)
             header = next(reader)  # skip the header
             for row in reader:
                 # vendor_id, passenger_count, trip_distance, payment_type, total_amount
-                records.append(f'{row[0]}, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[9]}, {row[16]}')
+                records.append(
+                    f"{row[0]}, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[9]}, {row[16]}"
+                )
                 ride_keys.append(str(row[0]))
                 i += 1
                 if i == 5:
@@ -52,9 +57,9 @@ class RideCSVProducer:
 
 if __name__ == "__main__":
     config = {
-        'bootstrap_servers': [BOOTSTRAP_SERVERS],
-        'key_serializer': lambda x: x.encode('utf-8'),
-        'value_serializer': lambda x: x.encode('utf-8')
+        "bootstrap_servers": [BOOTSTRAP_SERVERS],
+        "key_serializer": lambda x: x.encode("utf-8"),
+        "value_serializer": lambda x: x.encode("utf-8"),
     }
     producer = RideCSVProducer(props=config)
     ride_records = producer.read_records(resource_path=INPUT_DATA_PATH)

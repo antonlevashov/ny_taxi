@@ -7,10 +7,10 @@ class RideRecordKey:
 
     @classmethod
     def from_dict(cls, d: Dict):
-        return cls(vendor_id=d['vendor_id'])
+        return cls(vendor_id=d["vendor_id"])
 
     def __repr__(self):
-        return f'{self.__class__.__name__}: {self.__dict__}'
+        return f"{self.__class__.__name__}: {self.__dict__}"
 
 
 def dict_to_ride_record_key(obj, ctx):

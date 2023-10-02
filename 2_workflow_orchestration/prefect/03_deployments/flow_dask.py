@@ -139,6 +139,6 @@ if __name__ == "__main__":
         "2020-Jan",
         "2020-Feb",
         "2020-Mar",
-        "2020-Apr"
+        "2020-Apr",
     ]
     etl_parent_flow(months)
