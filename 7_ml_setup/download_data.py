@@ -68,7 +68,6 @@ def write_local(color: str, df: pd.DataFrame, dataset_file: str) -> None:
 
 
 if __name__ == "__main__":
-    
     colors = ["green", "yellow", "fhv"]
     years = [2019, 2020, 2021]
     months = range(1, 13)

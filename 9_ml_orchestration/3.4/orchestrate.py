@@ -31,18 +31,17 @@ def read_data(filename: str) -> pd.DataFrame:
 
 
 @task
-def add_features(
-    df_train: pd.DataFrame, df_val: pd.DataFrame
-) -> tuple(
+def add_features(df_train: pd.DataFrame, df_val: pd.DataFrame) -> tuple(
     [
         scipy.sparse._csr.csr_matrix,
         scipy.sparse._csr.csr_matrix,
         np.ndarray,
         np.ndarray,
-        sklearn.feature_extraction.DictVectorizer,
+        sklearn.feature_extraction.DictVectorizer
     ]
-):
+    ):
     """Add features to the model"""
+
     df_train["PU_DO"] = df_train["PULocationID"] + "_" + df_train["DOLocationID"]
     df_val["PU_DO"] = df_val["PULocationID"] + "_" + df_val["DOLocationID"]
 
